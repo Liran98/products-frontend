@@ -33,7 +33,7 @@ function ProductItem(props) {
   async function DeleteHandler() {
     try {
       setloading(true);
-      await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/products/${props.id}`, {
+      await fetch(`https://${process.env.REACT_APP_BACKEND_URL}/api/products/${props.id}`, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
       })
@@ -83,7 +83,7 @@ function ProductItem(props) {
         <Card className="product-item__content">
 
           <div className="product-item__image">
-            <img src={`${process.env.REACT_APP_BACKEND_URL}/${props.ProductIMG}`} alt={props.name} />
+            <img src={`https://${process.env.REACT_APP_BACKEND_URL}/${props.ProductIMG}`} alt={props.name} />
           </div>
           <div className="product-item__info">
             <h2>Product: {props.theProduct}</h2>

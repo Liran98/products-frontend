@@ -95,7 +95,7 @@ function Auth() {
         if (isloginMode) {
             try {
                 setIsLoading(true);
-                const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/users/login`, {
+                const response = await fetch(`https://${process.env.REACT_APP_BACKEND_URL}/api/users/login`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -130,11 +130,17 @@ function Auth() {
                 formDATA.append('password', Authstate.inputs.password.value);
                 formDATA.append('name', Authstate.inputs.name.value);
                 formDATA.append('image', Authstate.inputs.image.value);
-                const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/users/signup`, {
+                const response = await fetch(`https://${process.env.REACT_APP_BACKEND_URL}/api/users/signup`, {
                     method: 'POST',
                     body: formDATA,
+                
                 });
                 const responsedata = await response.json();
+             
+                if(!response.ok){
+                  throw new Error(responsedata.message);
+  
+                }
                 auth.Login(responsedata.user.id);
                 setIsLoading(false);
                 history.push('/users');

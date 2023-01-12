@@ -29,7 +29,7 @@ function Usersitems(props) {
   async function deleteHandler() {
     setIsLoading(true);
     try {
-      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/users/${props.id}`,
+      const response = await fetch(`https://${process.env.REACT_APP_BACKEND_URL}/api/users/${props.id}`,
         {
           method: 'DELETE',
           headers: { 'Content-Type': 'application/json' },
@@ -96,7 +96,7 @@ function Usersitems(props) {
           {isLoading && <LoadingSpinner asOverlay />}
           <Link to={`${props.id}/products`}>
             <div className="user-item__image">
-              <Avatar image={`${process.env.REACT_APP_BACKEND_URL}/${props.image}`} alt={props.name} />
+              <Avatar image={`https://${process.env.REACT_APP_BACKEND_URL}/${props.image}`} alt={props.name} />
             </div>
 
             <div className="user-item__info">

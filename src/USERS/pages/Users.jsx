@@ -7,11 +7,14 @@ function Users() {
     const [loadedUsers, setLoadedUsers] = useState();
     const [loading, setloading] = useState(false);
     const [error, setError] = useState();
+
+ 
     useEffect(() => {
         async function fetchUsers() {
         try {
+          
             setloading(true);
-                const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/users`);
+                const response = await fetch(`https://${process.env.REACT_APP_BACKEND_URL}/api/users`);
                 const responsedata = await response.json();
                 setLoadedUsers(responsedata.allUsers);
                 setloading(false);
