@@ -12,7 +12,7 @@ import { Authcontext } from "./shared/auth-context";
 import MAINNav from "./shared/MainNav";
 import AddProducts from "./PRODUCTS/pages/addProducts";
 import HomePage from "./HomePage";
-
+require('dotenv').config();
 
 
 function App() {
