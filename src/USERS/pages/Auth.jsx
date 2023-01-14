@@ -125,14 +125,23 @@ function Auth() {
         } else {
             try {
                 setIsLoading(true);
-                const formDATA = new FormData();
-                formDATA.append('email', Authstate.inputs.email.value);
-                formDATA.append('password', Authstate.inputs.password.value);
-                formDATA.append('name', Authstate.inputs.name.value);
+                // const formDATA = new FormData();
+                // formDATA.append('email', Authstate.inputs.email.value);
+                // formDATA.append('password', Authstate.inputs.password.value);
+                // formDATA.append('name', Authstate.inputs.name.value);
                 // formDATA.append('image', Authstate.inputs.image.value);
                 const response = await fetch(`https://${process.env.REACT_APP_BACKEND_URL}/api/users/signup`, {
                     method: 'POST',
-                    body: formDATA,
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email: Authstate.inputs.email.value,
+                        password: Authstate.inputs.password.value,
+                       name: Authstate.inputs.name.value,
+                    }),
+
+                    // body: formDATA,
                 
                 });
                 const responsedata = await response.json();
