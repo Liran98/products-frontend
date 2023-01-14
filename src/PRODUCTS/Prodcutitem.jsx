@@ -63,7 +63,7 @@ function ProductItem(props) {
         theheader="Delete your product"
         thefooter={
           <React.Fragment>
-            <Button  style={{margin:'10px'}}  variant='outline-light btn-primary' inverse onClick={cancelDeleteHandler}>
+            <Button    variant='outline-light btn-primary' inverse onClick={cancelDeleteHandler}>
               CANCEL
             </Button>
             <Button variant='outline-light btn-danger' danger onClick={DeleteHandler}>
@@ -74,9 +74,9 @@ function ProductItem(props) {
         }
       >
         {loading && <LoadingSpinner asOverlay />}
-        <h3>
+        <h5>
           Are you sure you want to delete this product ?
-        </h3>
+        </h5>
       </Modal>
 
       <li className="product-item">

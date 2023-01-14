@@ -51,7 +51,7 @@ function Input(props) {
                 placeholder={props.placeholder}
                 onChange={changeHandler}
                 value={inputState.value}
-              
+                required
                 minLength={props.min}
                 maxLength={props.max}
             />

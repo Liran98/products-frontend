@@ -76,7 +76,7 @@ function Usersitems(props) {
      contentClass="product-item__modal-content"
      thefooter={
        <React.Fragment>
-         <Button style={{margin:'10px'}} variant='outline-light btn-primary' inverse onClick={cancelDeleteHandler}>
+         <Button  variant='outline-light btn-primary' inverse onClick={cancelDeleteHandler}>
            CANCEL
          </Button>
          <Button variant='outline-light btn-danger' danger onClick={deleteHandler}>
@@ -87,9 +87,9 @@ function Usersitems(props) {
      }
    >
     {isLoading && <LoadingSpinner asOverlay />}
-     <h3>
+     <h5>
   Do you want to delete your account ? you cant undo this once clicked , choose wisely 
-     </h3>
+     </h5>
    </Modal>
       <li className="user-item">
         <Card className="user-item__content">
