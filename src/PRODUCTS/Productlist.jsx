@@ -27,7 +27,7 @@ function Productlist(props) {
           theProduct={product.product}
           price={product.price}
           deleteProduct={props.ondelete}
-          ProductIMG={product.image}
+          // ProductIMG={product.image}
           description={product.description}
           owner={product.owner}
         />

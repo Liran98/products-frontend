@@ -1,7 +1,7 @@
 import React, { useCallback, useReducer } from 'react'
 import Input from '../../shared/Input';
 import { Button } from 'react-bootstrap';
-import ImageUpload from '../../shared/imageUpload';
+// import ImageUpload from '../../shared/imageUpload';
 import { useHistory } from 'react-router';
 import { Authcontext } from '../../shared/auth-context';
 import { useContext } from 'react';
@@ -49,9 +49,9 @@ function AddProducts() {
         value: "",
 
       },
-      image: {
-        value: null
-      },
+      // image: {
+      //   value: null
+      // },
       description: {
         value: ""
       }
@@ -76,7 +76,7 @@ function AddProducts() {
     try {
       setIsLoading(true);
       const formData = new FormData();
-      formData.append('image', formState.inputs.image.value);
+      // formData.append('image', formState.inputs.image.value);
       formData.append('description', formState.inputs.description.value);
       formData.append('price', formState.inputs.price.value);
       formData.append('product', formState.inputs.product.value);
@@ -118,10 +118,10 @@ function AddProducts() {
           type="text"
 
         />
-        <ImageUpload
+        {/* <ImageUpload
           id="image"
           onInput={inputHandler}
-        />
+        /> */}
 
         <Input
           id="price"

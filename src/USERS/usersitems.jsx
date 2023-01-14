@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import Card from "../shared/card";
 import '../STYLING/USERS.css';
-import Avatar from '../shared/Avatar';
+// import Avatar from '../shared/Avatar';
 import { Button } from 'react-bootstrap';
 import { Authcontext } from '../shared/auth-context';
 import { useContext } from 'react';
@@ -95,9 +95,9 @@ function Usersitems(props) {
         <Card className="user-item__content">
           {isLoading && <LoadingSpinner asOverlay />}
           <Link to={`${props.id}/products`}>
-            <div className="user-item__image">
+            {/* <div className="user-item__image">
               <Avatar image={`https://${process.env.REACT_APP_BACKEND_URL}/${props.image}`} alt={props.name} />
-            </div>
+            </div> */}
 
             <div className="user-item__info">
               <h2>{props.name.toUpperCase()}</h2>

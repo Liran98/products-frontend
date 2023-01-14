@@ -3,7 +3,7 @@ import Input from '../../shared/Input';
 import ErrorModal from '../../shared/ErrorModal';
 import LoadingSpinner from '../../shared/loadingspinner';
 import Card from '../../shared/card';
-import ImageUpload from '../../shared/imageUpload';
+// import ImageUpload from '../../shared/imageUpload';
 import { useHistory } from 'react-router';
 import { Authcontext } from '../../shared/auth-context';
 import Button from 'react-bootstrap/Button';
@@ -70,7 +70,7 @@ function Auth() {
             dispatch({
                 ...Authstate.inputs,
                 name: undefined,
-                image: undefined,
+                // image: undefined,
             });
         } else {
             dispatch({
@@ -78,9 +78,9 @@ function Auth() {
                 name: {
                     value: '',
                 },
-                image: {
-                    value: null,
-                }
+                // image: {
+                //     value: null,
+                // }
             });
         }
         setisloginMode((prevmode) => {
@@ -129,7 +129,7 @@ function Auth() {
                 formDATA.append('email', Authstate.inputs.email.value);
                 formDATA.append('password', Authstate.inputs.password.value);
                 formDATA.append('name', Authstate.inputs.name.value);
-                formDATA.append('image', Authstate.inputs.image.value);
+                // formDATA.append('image', Authstate.inputs.image.value);
                 const response = await fetch(`https://${process.env.REACT_APP_BACKEND_URL}/api/users/signup`, {
                     method: 'POST',
                     body: formDATA,
@@ -175,11 +175,11 @@ function Auth() {
                         element="input"
                         onInput={inputhandler}
                     />}
-                {!isloginMode &&
+                {/* {!isloginMode &&
                     <ImageUpload
                         id="image"
                         onInput={inputhandler}
-                    />}
+                    />} */}
                 <Input
                     id="email"
                     element="input"

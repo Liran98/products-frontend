@@ -22,7 +22,7 @@ function Userslist(props) {
          id={user.id}
          name={user.name}
          ProductCount={user.products.length}
-         image={user.image}
+        //  image={user.image}
          deleteUser={props.deleteUSER}
          
     />

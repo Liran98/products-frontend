@@ -82,9 +82,9 @@ function ProductItem(props) {
       <li className="product-item">
         <Card className="product-item__content">
 
-          <div className="product-item__image">
+          {/* <div className="product-item__image">
             <img src={`https://${process.env.REACT_APP_BACKEND_URL}/${props.ProductIMG}`} alt={props.name} />
-          </div>
+          </div> */}
           <div className="product-item__info">
             <h2>Product: {props.theProduct}</h2>
             <h3>Description: {props.description}</h3>
