@@ -75,16 +75,25 @@ function AddProducts() {
     console.log(formState.inputs);
     try {
       setIsLoading(true);
-      const formData = new FormData();
+      // const formData = new FormData();
       // formData.append('image', formState.inputs.image.value);
-      formData.append('description', formState.inputs.description.value);
-      formData.append('price', formState.inputs.price.value);
-      formData.append('product', formState.inputs.product.value);
-      formData.append('owner', auth.userId);
+      // formData.append('description', formState.inputs.description.value);
+      // formData.append('price', formState.inputs.price.value);
+      // formData.append('product', formState.inputs.product.value);
+      // formData.append('owner', auth.userId);
 
      const response = await fetch(`https://${process.env.REACT_APP_BACKEND_URL}/api/products`, {
         method: 'POST',
-        body: formData
+        // body: formData
+        headers: {
+          'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+          description: formState.inputs.description.value,
+          price:formState.inputs.price.value,
+          product:formState.inputs.product.value,
+          owner: auth.userId
+      }),
       });
       const responseData = await response.json();
       if(!response.ok){
