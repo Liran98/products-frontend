@@ -95,7 +95,7 @@ function Auth() {
         if (isloginMode) {
             try {
                 setIsLoading(true);
-                const response = await fetch(`https://${process.env.REACT_APP_BACKEND_URL}/api/users/login`, {
+                const response = await fetch(`https://worried-amount-production.up.railway.app/api/users/login`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -107,21 +107,21 @@ function Auth() {
 
                 });
                 const responsedata = await response.json();
-              if(!response.ok){
-                throw new Error(responsedata.message);
+                if (!response.ok) {
+                    throw new Error(responsedata.message);
 
-              }
+                }
 
                 auth.Login(responsedata.user.id);
                 setIsLoading(false);
                 history.push('/users');
-             
+
             } catch (err) {
                 setIsLoading(false);
                 console.log(err);
                 setError(err.message);
             }
-           
+
         } else {
             try {
                 setIsLoading(true);
@@ -130,7 +130,8 @@ function Auth() {
                 // formDATA.append('password', Authstate.inputs.password.value);
                 // formDATA.append('name', Authstate.inputs.name.value);
                 // formDATA.append('image', Authstate.inputs.image.value);
-                const response = await fetch(`https://${process.env.REACT_APP_BACKEND_URL}/api/users/signup`, {
+                const response = await fetch(`https://worried-amount-production.up.railway.app/api/users/signup`, 
+                {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -138,17 +139,17 @@ function Auth() {
                     body: JSON.stringify({
                         email: Authstate.inputs.email.value,
                         password: Authstate.inputs.password.value,
-                       name: Authstate.inputs.name.value,
+                        name: Authstate.inputs.name.value,
                     }),
 
                     // body: formDATA,
-                
+
                 });
                 const responsedata = await response.json();
-             
-                if(!response.ok){
-                  throw new Error(responsedata.message);
-  
+
+                if (!response.ok) {
+                    throw new Error(responsedata.message);
+
                 }
                 auth.Login(responsedata.user.id);
                 setIsLoading(false);
@@ -158,7 +159,7 @@ function Auth() {
                 setError(err.messsage || "something went wrong ,please try again");
                 throw err;
             }
-         
+
         }
 
     }
@@ -166,56 +167,56 @@ function Auth() {
         setError(null);
     }
     return (
-<React.Fragment>
-<ErrorModal error={error} onClear={clearError}/>
-        <Card
-            className='authentication'>
-                 {isLoading && <LoadingSpinner asOverlay />}
-            {isloginMode ? <h1>Login Required</h1> : <h1>SignUp Required</h1>}
-            <hr />
-            <form onSubmit={Submithandler}>
-           
-                {!isloginMode &&
-                    <Input
-                        id="name"
-                        type="text"
-                        placeholder='Name...'
-                        label="Name"
-                        element="input"
-                        onInput={inputhandler}
-                    />}
-                {/* {!isloginMode &&
+        <React.Fragment>
+            <ErrorModal error={error} onClear={clearError} />
+            <Card
+                className='authentication'>
+                {isLoading && <LoadingSpinner asOverlay />}
+                {isloginMode ? <h1>Login Required</h1> : <h1>SignUp Required</h1>}
+                <hr />
+                <form onSubmit={Submithandler}>
+
+                    {!isloginMode &&
+                        <Input
+                            id="name"
+                            type="text"
+                            placeholder='Name...'
+                            label="Name"
+                            element="input"
+                            onInput={inputhandler}
+                        />}
+                    {/* {!isloginMode &&
                     <ImageUpload
                         id="image"
                         onInput={inputhandler}
                     />} */}
-                <Input
-                    id="email"
-                    element="input"
-                    type="email"
-                    placeholder='Email...'
-                    label="Email"
-                    onInput={inputhandler}
+                    <Input
+                        id="email"
+                        element="input"
+                        type="email"
+                        placeholder='Email...'
+                        label="Email"
+                        onInput={inputhandler}
 
-                />
+                    />
 
-                <Input
-                    id="password"
-                    element="input"
-                    label="Password"
-                    type="password"
-                    placeholder='Password...'
-                    onInput={inputhandler}
-                    min="6"
-                />
+                    <Input
+                        id="password"
+                        element="input"
+                        label="Password"
+                        type="password"
+                        placeholder='Password...'
+                        onInput={inputhandler}
+                        min="6"
+                    />
 
-                <Button variant="outline-light btn-primary" type="submit">{isloginMode ? "LOGIN" : "SIGNUP"}</Button>
-            </form>
-            <Button variant="outline-light btn-secondary" onClick={modechange}>{isloginMode ? "SWITCH TO SIGNUP" : "SWITCH TO LOGIN"}</Button>
+                    <Button variant="outline-light btn-primary" type="submit">{isloginMode ? "LOGIN" : "SIGNUP"}</Button>
+                </form>
+                <Button variant="outline-light btn-secondary" onClick={modechange}>{isloginMode ? "SWITCH TO SIGNUP" : "SWITCH TO LOGIN"}</Button>
 
 
-        </Card>
-</React.Fragment>
+            </Card>
+        </React.Fragment>
     )
 }
 

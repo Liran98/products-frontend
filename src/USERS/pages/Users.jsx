@@ -8,22 +8,22 @@ function Users() {
     const [loading, setloading] = useState(false);
     const [error, setError] = useState();
 
- 
+
     useEffect(() => {
         async function fetchUsers() {
-        try {
-          
-            setloading(true);
-                const response = await fetch(`https://${process.env.REACT_APP_BACKEND_URL}/api/users`);
+            try {
+
+                setloading(true);
+                const response = await fetch(`https://worried-amount-production.up.railway.app/api/users`);
                 const responsedata = await response.json();
                 setLoadedUsers(responsedata.allUsers);
                 setloading(false);
-            }catch (err) {
+            } catch (err) {
                 setloading(false);
                 setError(err.message || "couldn't fetch Users");
                 throw err;
             }
-        } 
+        }
         fetchUsers();
     }, []);
 
@@ -36,11 +36,14 @@ function Users() {
     const clearError = () => {
         setError(null);
     }
-    return <React.Fragment>
-        <ErrorModal error={error} onClear={clearError} />
-        {loading && <LoadingSpinner asOverlay />}
-        {loadedUsers && <UserList items={loadedUsers} deleteUSER={DeleteUser} />}
+    return    <React.Fragment >
+       <div className='user-image'>
+            <ErrorModal error={error} onClear={clearError} />
+            {loading && <LoadingSpinner asOverlay />}
+            {loadedUsers && <UserList items={loadedUsers} deleteUSER={DeleteUser} />}
+            </div>
         </React.Fragment>
+
 
 }
 

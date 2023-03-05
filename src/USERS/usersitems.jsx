@@ -29,7 +29,7 @@ function Usersitems(props) {
   async function deleteHandler() {
     setIsLoading(true);
     try {
-      const response = await fetch(`https://${process.env.REACT_APP_BACKEND_URL}/api/users/${props.id}`,
+      const response = await fetch(`https://worried-amount-production.up.railway.app/api/users/${props.id}`,
         {
           method: 'DELETE',
           headers: { 'Content-Type': 'application/json' },

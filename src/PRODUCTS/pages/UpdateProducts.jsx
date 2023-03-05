@@ -73,7 +73,8 @@ function UpdateProducts() {
     async function fetchProducts() {
       try {
         setIsLoading(true);
-        const response = await fetch(`https://${process.env.REACT_APP_BACKEND_URL}/api/products/${productId}`);
+        const response = await fetch(`https://worried-amount-production.up.railway.app/api/products/${productId}`);
+        
         const responsedata = await response.json();
         setloadedProducts(responsedata.products);
 
@@ -109,7 +110,7 @@ function UpdateProducts() {
     event.preventDefault();
     try {
       setIsLoading(true);
-      const response = await fetch(`https://${process.env.REACT_APP_BACKEND_URL}/api/products/${productId}`, {
+      const response = await fetch(`https://worried-amount-production.up.railway.app/api/products/${productId}`, {
         method: 'PATCH',
 
         body: JSON.stringify({

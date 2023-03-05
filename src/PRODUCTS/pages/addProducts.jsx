@@ -82,7 +82,7 @@ function AddProducts() {
       // formData.append('product', formState.inputs.product.value);
       // formData.append('owner', auth.userId);
 
-     const response = await fetch(`https://${process.env.REACT_APP_BACKEND_URL}/api/products`, {
+     const response = await fetch(`https://worried-amount-production.up.railway.app/api/products`, {
         method: 'POST',
         // body: formData
         headers: {

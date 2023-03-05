@@ -33,7 +33,7 @@ function ProductItem(props) {
   async function DeleteHandler() {
     try {
       setloading(true);
-      await fetch(`https://${process.env.REACT_APP_BACKEND_URL}/api/products/${props.id}`, {
+      await fetch(`https://worried-amount-production.up.railway.app/api/products/${props.id}`, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
       })

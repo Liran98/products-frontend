@@ -19,7 +19,8 @@ function Products() {
     async function fetchUserProducts() {
       try {
         setisloading(true);
-        const response = await fetch(`https://${process.env.REACT_APP_BACKEND_URL}/api/products/user/${userId}`)
+        const response = await fetch(`https://worried-amount-production.up.railway.app/api/products/user/${userId}`)
+      
 
         const responseData = await response.json();
         if(!response.ok){
